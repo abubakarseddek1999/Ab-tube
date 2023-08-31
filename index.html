@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ab-tube</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <!-- navbar -->
+    <nav class="p-5">
+        <div class="navbar bg-base-100">
+            <div class="navbar-start">
+                <img src="./Logo.png" alt="">
+            </div>
+            <div class="navbar-center">
+                <button class="btn">Sort by view</button>
+            </div>
+            <div class="navbar-end">
+                <button onclick="handleBlog()" class="btn btn-error">Blog</button>
+            </div>
+        </div>
+        <hr class="mt-5">
+    </nav>
+    <!-- tab container -->
+    <div class="category-container">
+        <div id="category-container" class="tabs gap-5 flex justify-center">
+            <!-- <a class="tab">Tab 1</a>
+            <a class="tab tab-active">Tab 2</a>
+            <a class="tab">Tab 3</a> -->
+        </div>
+    </div>
+
+    <div id="item-card" class="mt-4 p-5">
+        <!-- <div class="card w-96 bg-base-100 shadow-xl">
+            <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" />
+            </figure>
+            <div class="card-body">
+                <h2 class="card-title">
+                    Shoes!
+                    <div class="badge badge-secondary">NEW</div>
+                </h2>
+                <p>If a dog chews shoes whose shoes does he choose?</p>
+                <div class="card-actions justify-end">
+                    <div class="badge badge-outline">Fashion</div>
+                    <div class="badge badge-outline">Products</div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
