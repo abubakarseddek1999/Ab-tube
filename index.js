@@ -21,15 +21,49 @@ const handleCategory = async () => {
 }
 handleCategory();
 
+
 const handleItem = async (categoryId) => {
     const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/${categoryId}`)
     const data = await res.json();
     console.log(data);
+
+    const emptyArea =document.getElementById('no-data')
+    console.log(data.data);
+    
+    if (data.data.length ===0) {
+        emptyArea.classList.remove('hidden');
+        
+            
+    }
+    else{
+        emptyArea.classList.add('hidden');
+    }
+
+
+
     const itemCard = document.getElementById('item-card')
     itemCard.innerHTML = '';
     data.data?.forEach(item => {
         console.log(item)
-        const img = document.getElementById('img');
+        const postedDate =item.others?.posted_date
+        console.log(postedDate)
+        
+        const toHoursAndMinute = ()=>{
+            
+            const totalMinute =Math.floor(postedDate /60);
+            const second = postedDate %60;
+            const hours =Math.floor(totalMinute /60);
+            const minute= totalMinute %60;
+            
+            const result ={h: hours , m: minute, s: second}
+            console.log(result)
+            return result
+            
+        }
+        toHoursAndMinute()
+        
+        const time =toHoursAndMinute()
+        console.log(time)
        
         const div = document.createElement('div');
         div.innerHTML = `
@@ -37,6 +71,7 @@ const handleItem = async (categoryId) => {
             <figure ><img class=" w-full h-56" src=${item.thumbnail
             } alt="Shoes" />
             </figure>
+            <div class=" flex justify-end">${time.h}hrs ${time.m}min ago </div>
             <div class="card-body  ">
             
             <h2 class="card-title">
@@ -64,8 +99,12 @@ const handleItem = async (categoryId) => {
         </div>
         `
         itemCard.appendChild(div);
+     
 
     });
+    
+    
 
 }
+
 handleItem(1000);
