@@ -43,10 +43,10 @@ const handleItem = async (categoryId) => {
 
     const itemCard = document.getElementById('item-card')
     itemCard.innerHTML = '';
-    data.data?.forEach(item => {
-        console.log(item)
+    data.data?.sort((a,b)=> parseInt(b.others.views) -parseInt(a.others.views)).forEach(item => {
+        // console.log(item)
         const postedDate =item.others?.posted_date
-        console.log(postedDate)
+        // console.log(postedDate)
         
         const toHoursAndMinute = ()=>{
             
@@ -56,7 +56,7 @@ const handleItem = async (categoryId) => {
             const minute= totalMinute %60;
             
             const result ={h: hours , m: minute, s: second}
-            console.log(result)
+            // console.log(result)
             return result
             
         }
@@ -65,7 +65,7 @@ const handleItem = async (categoryId) => {
         const time =toHoursAndMinute()
         var setTime = `${time.h}hrs ${time.m}min ago `
 
-        console.log(time)
+        // console.log(time)
        
         const div = document.createElement('div');
         div.innerHTML = `
@@ -106,8 +106,8 @@ const handleItem = async (categoryId) => {
      
 
     });
-    
-    
+
+
 
 }
 
