@@ -33,7 +33,7 @@ const handleItem = async (categoryId) => {
        
         const div = document.createElement('div');
         div.innerHTML = `
-        <div class="card mt-4 h-[300px] bg-base-100 shadow-xl">
+        <div class="card mt-4  bg-base-100 shadow-xl">
             <figure ><img class=" w-full h-56" src=${item.thumbnail
             } alt="Shoes" />
             </figure>
@@ -41,9 +41,9 @@ const handleItem = async (categoryId) => {
             
             <h2 class="card-title">
                <div class=" rounded-md">
-                <img class="w-14 rounded-full" src="${item.authors[0]?.profile_picture}" alt=""/>
+                <img class="w-14 h-14 rounded-full" src="${item.authors[0]?.profile_picture}" alt=""/>
                </div>
-                <span class=" text-2xl font-bold">${item.title} </span>
+                <span class=" text-xl font-bold">${item.title} </span>
             </h2>
             <h2 class="card-title">
                <div class="text-xl ">
