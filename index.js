@@ -63,6 +63,8 @@ const handleItem = async (categoryId) => {
         toHoursAndMinute()
         
         const time =toHoursAndMinute()
+        var setTime = `${time.h}hrs ${time.m}min ago `
+
         console.log(time)
        
         const div = document.createElement('div');
@@ -71,8 +73,10 @@ const handleItem = async (categoryId) => {
             <figure ><img class=" w-full h-56" src=${item.thumbnail
             } alt="Shoes" />
             </figure>
-            <div class=" flex justify-end">${time.h}hrs ${time.m}min ago </div>
-            <div class="card-body  ">
+            <div class="flex  justify-end">
+            <div class=" -mt-8 bg-black text-white ">${postedDate? setTime : ""}</div>
+            </div>
+            <div class="card-body ">
             
             <h2 class="card-title">
                <div class=" rounded-md">
