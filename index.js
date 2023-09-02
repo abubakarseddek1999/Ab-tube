@@ -23,6 +23,7 @@ handleCategory();
 
 
 const handleItem = async (categoryId) => {
+
     const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/${categoryId}`)
     const data = await res.json();
     console.log(data);
@@ -32,14 +33,11 @@ const handleItem = async (categoryId) => {
     
     if (data.data.length ===0) {
         emptyArea.classList.remove('hidden');
-        
-            
+              
     }
     else{
         emptyArea.classList.add('hidden');
     }
-
-
 
     const itemCard = document.getElementById('item-card')
     itemCard.innerHTML = '';
@@ -103,33 +101,33 @@ const handleItem = async (categoryId) => {
         </div>
         `
         itemCard.appendChild(div);
-     
+
 
     });
 
+    const shortHandle =(data)=>{
+        sort((a,b)=> parseInt(b.others.views) -parseInt(a.others.views))
 
+        handleItem();
+    }
 
 }
 
 const shortHandle =async(categoryId)=>{
+    console.log(categoryId);
      const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/1000`)
     const data = await res.json();
-    console.log(data);
 
     const emptyArea =document.getElementById('no-data')
     console.log(data.data);
     
     if (data.data.length ===0) {
         emptyArea.classList.remove('hidden');
-        
             
     }
     else{
         emptyArea.classList.add('hidden');
     }
-
-
-
     const itemCard = document.getElementById('item-card')
     itemCard.innerHTML = '';
     data.data?.sort((a,b)=> parseInt(b.others.views) -parseInt(a.others.views)).forEach(item => {
